@@ -1,5 +1,6 @@
 package com.demo.firstspringboot.collector;
 
+import com.demo.firstspringboot.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -26,5 +27,14 @@ class HelloControllerMarkParams {
     @GetMapping("/param/{name}")
     public String sayHelloWithPathVariable(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
+    }
+}
+@RestController
+@RequestMapping("/hello")
+class HelloControllerPost {
+
+    @PostMapping("/post")
+    public String sayHelloWithPost(@RequestBody UserDTO user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
 }
